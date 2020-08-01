@@ -20,8 +20,8 @@ test('gets user input for name from getName()', () => {
 })
 
 
-test('gets input for id from getID()', () => {
-    const testId = 12345;
+test('gets input for id from getId()', () => {
+    const testId = 1;
     const employee = new Employee("Id", testId);
     expect(employee.getId()).toEqual(expect.any(Number));
 })
@@ -33,10 +33,12 @@ test('gets input for email from getEmail())', () => {
     expect(employee.email).toBe(testEmail);
 })
 
-test('gets user input for role from getRole())', () => {
-    const employee = new Employee('jack');
+// test('gets user input for role from getRole())', () => {
+//     const testRole = "Employee"
+//     const employee = new Employee("jack", 1, "jack@gmail.com");
 
-    expect(employee.getRole()).toEqual(expect.any(String));
-})
+
+//     expect(employee.getRole()).toBe(testRole);
+// })
 
 
