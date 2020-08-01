@@ -11,9 +11,16 @@ test('creates a employee object', () => {
 test('gets input for id', () => {
     const employee = new Employee('jack');
     expect(employee.getId()).toEqual(expect.any(Number));
-
-    employee.id = [];
-
-    expect(employee.getId()).toEqual(false);
 })
 
+test('gets input for email', () => {
+    const employee = new Employee('jack');
+
+    expect(employee.getEmail()).toEqual(expect.any(String));
+})
+
+test('gets user input for email', () => {
+    const employee = new Employee('jack');
+
+    expect(employee.getRole()).toEqual(expect.any(String));
+})

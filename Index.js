@@ -33,7 +33,7 @@ inquirer
 
     });
 // // part that creates the HTML page
-const fs = require('fs');
+//const fs = require('fs');
 
 // const html = `<!DOCTYPE html>
 // <html>
