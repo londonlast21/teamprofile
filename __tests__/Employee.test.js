@@ -5,4 +5,15 @@ test('creates a employee object', () => {
 
     expect(employee.name).toBe('jack');
     expect(employee.name.length).toBeGreaterThan(0);
+
 })
+
+test('gets input for id', () => {
+    const employee = new Employee('jack');
+    expect(employee.getId()).toEqual(expect.any(Number));
+
+    employee.id = [];
+
+    expect(employee.getId()).toEqual(false);
+})
+
