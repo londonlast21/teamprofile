@@ -9,3 +9,8 @@ test('gets input for office number from getOfficeNumber())', () => {
 });
 
 // getRole
+test("getRole() should return \"Manager\"", () => {
+  const testValue = "Manager";
+  const employee = new Manager("jack", 1, "jack@gmail.com", 123);
+  expect(employee.getRole()).toBe(testValue);
+});
