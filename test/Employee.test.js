@@ -7,36 +7,28 @@ test('creates a employee object', () => {
 
 })
 
-test('substantiate Employee existence', () => {
+test('gets user input for name', () => {
     const name = "jack";
     const employee = new Employee(name);
     expect(employee.name).toBe(name);
 })
 
-test('gets user input for name from getName()', () => {
-    const testName = "jack";
-    const employee = new Employee(testName);
-    expect(employee.getName()).toBe(testName);
-})
 
 
-test('gets input for id from getID()', () => {
+test('gets input for id', () => {
     const testId = 12345;
     const employee = new Employee("Id", testId);
     expect(employee.getId()).toEqual(expect.any(Number));
 })
 
-test('gets input for email from getEmail())', () => {
-    const testEmail = "jack@gmail.com";
-    const employee = new Employee("Email", 1, testEmail);
+test('gets input for email', () => {
+    const employee = new Employee('jack');
 
-    expect(employee.email).toBe(testEmail);
+    expect(employee.getEmail()).toEqual(expect.any(String));
 })
 
-test('gets user input for role from getRole())', () => {
+test('gets user input for email', () => {
     const employee = new Employee('jack');
 
     expect(employee.getRole()).toEqual(expect.any(String));
 })
-
-
