@@ -23,7 +23,7 @@ test('gets user input for name from getName()', () => {
 test('gets input for id from getId()', () => {
     const testId = 1;
     const employee = new Employee("Id", testId);
-    expect(employee.getId()).toEqual(expect.any(Number));
+    expect(employee.getId()).toBe(testId);
 })
 
 test('gets input for email from getEmail())', () => {

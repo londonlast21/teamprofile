@@ -4,11 +4,11 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
-function Profile(){
+async function Profile(){
 
     // ask for the user to input information
     inquirer
-        .prompt([
+        response = await inquirer.prompt([
             {
             type: 'input',
             name: 'name',
@@ -40,15 +40,18 @@ function Profile(){
 
             this.startNewProfile();
         });
+
+
+        startNewProfile(){
+            console.log('Your information is:');
+            console.log(this.employee.name);
+            console.log(this.employee.id);
+            console.log(this.employee.email);
+            console.log(this.employee.role);
+        }
 };
 
-Profile.prototype.startNewProfile = function() {
-    console.log('Your information is:');
-    console.log(this.employee.name);
-    console.log(this.employee.id);
-    console.log(this.employee.email);
-    console.log(this.employee.role);
-}
+
 // // part that creates the HTML page
 //const fs = require('fs');
 
