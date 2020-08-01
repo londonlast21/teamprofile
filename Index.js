@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
-const Manager = require('./Manager');
-const Engineer = require('./Engineer');
-const Intern = require('./Intern');
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
 
 function makeProfile() {
     this.employee;
@@ -26,7 +26,7 @@ makeProfile.prototype.initializeProfile = function () {
             type: 'input',
             name: 'email',
             message: "Enter employee's email",
-            }
+            },
             {
             type: 'list',
             name: role,
@@ -34,15 +34,15 @@ makeProfile.prototype.initializeProfile = function () {
             choices: ['Manager', 'Engineer', 'Intern']
             },
         ])
-    // do what with the answers?
-    .then(answers => {
-        this.employee = new Employee(name);
-        this.employee = new Employee(id);
-        this.employee = new Employee(email);
-        this.employee = new Employee(role);
+        // do what with the answers?
+        .then(answers => {
+            this.employee = new Employee(name);
+            this.employee = new Employee(id);
+            this.employee = new Employee(email);
+            this.employee = new Employee(role);
 
-        this.startNewProfile();
-    });
+            this.startNewProfile();
+        });
 };
 
 makeProfile.prototype.startNewProfile = function() {
