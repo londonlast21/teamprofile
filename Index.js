@@ -1,13 +1,10 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
-function makeProfile() {
-    this.employee;
-}
-
-makeProfile.prototype.initializeProfile = function () {
+function Profile(){
 
     // ask for the user to input information
     inquirer
@@ -45,7 +42,7 @@ makeProfile.prototype.initializeProfile = function () {
         });
 };
 
-makeProfile.prototype.startNewProfile = function() {
+Profile.prototype.startNewProfile = function() {
     console.log('Your information is:');
     console.log(this.employee.name);
     console.log(this.employee.id);

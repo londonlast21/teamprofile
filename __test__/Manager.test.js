@@ -1,11 +1,11 @@
 const Manager = require('../lib/Manager.js');
 const Employee = require('../lib/Employee.js');
 
-test('creates a manager object', () => {
-    const manager = new Manager('jack');
+test('gets input for office number from getOfficeNumber())', () => {
+    const testOfficeNumber = 123;
+    const Manager = new Manager("jack", 1, "jack@gmail.com", testOfficeNumber);
 
-    expect(manager.name).toBe('jack');
-    expect(manager.id).toEqual(expect.any(Number));
-    expect(manager.email).toEqual(expect.any(String));
-
+    expect(manager.officeNumber).toBe(testOfficeNumber);
 });
+
+// getRole
