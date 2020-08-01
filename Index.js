@@ -1,37 +1,57 @@
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
+const Manager = require('./Manager');
+const Engineer = require('./Engineer');
+const Intern = require('./Intern');
 
-inquirer
-    .prompt([
-        {
-        type: 'input',
-        name: 'name',
-        message: "What's employee's name?",
-        },
-        {
-        type: 'input',
-        name: 'id',
-        message: "Enter employee's Id number",
-        },
-        {
-        type: 'input',
-        name: 'email',
-        message: "Enter employee's email",
-        }
-        {
-        type: 'list',
-        name: role,
-        message: "Choose employee's role",
-        choices: ['Manager', 'Engineer', 'Intern']
-        },
-    ])
+function makeProfile() {
+    this.employee;
+}
+
+makeProfile.prototype.initializeProfile = function () {
+
+    // ask for the user to input information
+    inquirer
+        .prompt([
+            {
+            type: 'input',
+            name: 'name',
+            message: "What's employee's name?",
+            },
+            {
+            type: 'input',
+            name: 'id',
+            message: "Enter employee's Id number",
+            },
+            {
+            type: 'input',
+            name: 'email',
+            message: "Enter employee's email",
+            }
+            {
+            type: 'list',
+            name: role,
+            message: "Choose employee's role",
+            choices: ['Manager', 'Engineer', 'Intern']
+            },
+        ])
     // do what with the answers?
     .then(answers => {
-        console.log('Name:', answers.name);
-        console.log('Id Number:', answers.id);
-        console.log('Email:', answers.email);
-        console.log('Role:', answers.role);
+        this.employee = new Employee(name);
+        this.employee = new Employee(id);
+        this.employee = new Employee(email);
+        this.employee = new Employee(role);
 
+        this.startNewProfile();
     });
+};
+
+makeProfile.prototype.startNewProfile = function() {
+    console.log('Your information is:');
+    console.log(this.employee.name);
+    console.log(this.employee.id);
+    console.log(this.employee.email);
+    console.log(this.employee.role);
+}
 // // part that creates the HTML page
 //const fs = require('fs');
 
