@@ -33,3 +33,12 @@ test('gets input for email from getEmail())', () => {
     expect(employee.email).toBe(testEmail);
 })
 
+// test('gets user input for role from getRole())', () => {
+//     const testRole = "Employee"
+//     const employee = new Employee("jack", 1, "jack@gmail.com");
+
+
+//     expect(employee.getRole()).toBe(testRole);
+// })
+
+
