@@ -26,16 +26,34 @@ function getInput() {
         type: 'input',
         name: 'name',
         message: "What's employee's name?",
+        validate: answer => {
+            if (answer !=="") {
+                return true;
+            }
+            return "Please enter a name";
+        }
         },
         {
         type: 'input',
         name: 'id',
         message: "Enter employee's Id number",
+        validate: answer => {
+            if (answer !=="") {
+                return true;
+            }
+            return "Please enter ID number"
+        }
         },
         {
         type: 'input',
         name: 'email',
         message: "Enter employee's email",
+        validate: answer => {
+            if (answer !=="") {
+                return true;
+            }
+            return "Please enter email"
+        }
         },
         {
         type:'list',
@@ -63,7 +81,13 @@ function getInput() {
                 inquirer.prompt([{
                     type: "input",
                     name: "officeNumber",
-                    message: "What is their office number?"
+                    message: "What is their office number?",
+                    validate: answer => {
+                        if (answer !=="") {
+                            return true;
+                        }
+                        return "Please enter office number"
+                    }
                 }])
                 .then(function(response){
                     
@@ -74,6 +98,9 @@ function getInput() {
                     teamMembers.push(new Manager(name, id, email, officeNumber));
                     // test what is in array
                     console.log(teamMembers);
+
+                    // function to generate managercard
+                    //genManagerCard
                 })
 
 
@@ -85,7 +112,13 @@ function getInput() {
                 inquirer.prompt([{
                     type: "input",
                     name: "gitHubName",
-                    message: "What is their GitHub username?"
+                    message: "What is their GitHub username?",
+                    validate: answer => {
+                        if (answer !=="") {
+                            return true;
+                        }
+                        return "Please enter GitHub name"
+                    }
                 }])
                 .then(function(response){
                     let gitHubName = response.gitHubName;
@@ -104,7 +137,13 @@ function getInput() {
                 inquirer.prompt([{
                     type: "input",
                     name: "school",
-                    message: "What is their school's name?"
+                    message: "What is their school's name?",
+                    validate: answer => {
+                        if (answer !=="") {
+                            return true;
+                        }
+                        return "Please enter school name"
+                    }
                 }])
                 .then(function(response){
                     let school = response.school;
@@ -113,11 +152,13 @@ function getInput() {
                     // test what is in array
                     console.log(teamMembers);
                 })
+                
             }
+          
             
         })
 
-    // ask if user wants to repeat
+    
     
 // below this is closure of getInput();
 }
@@ -147,7 +188,7 @@ function addAnother() {
         }
     })}
 
-    // send this info to html generation
+
 
 // // part that creates the HTML page
 function writeFile(){
