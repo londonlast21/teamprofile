@@ -12,7 +12,8 @@ const Intern = require('./lib/Intern.js');
 const teamMembers = [];
 
 // prompt user for initial input
-inquirer.prompt([
+function getInput() {
+    inquirer.prompt([
         {
         type: 'input',
         name: 'name',
@@ -39,6 +40,7 @@ inquirer.prompt([
             getRole();
             
         });
+    }
 
 // make next function for role run
 function getRole() {
@@ -68,6 +70,10 @@ function getRole() {
                 message: "What is their office number?",
             }]);
 
+            
+
+            
+
 
         } else if 
             ((response).role === "Engineer") {
@@ -80,6 +86,8 @@ function getRole() {
                 message: "What is their GitHub username?",
             }]);
 
+           
+
          }
         else if
             ((response).role === "Intern") { 
@@ -91,16 +99,43 @@ function getRole() {
                     name: "school",
                     message: "What is the name of their school?",
                 }]);
+                
+                
             }
         });
 
+       // push response to teamMembers array
+
+       // prompt for further input
+       //addAnother();
+
 }
 
-// functions to build each type of profile card
-// function getManager() {
+function addAnother() {
+    inquirer.prompt([{
+        type: "list",
+        name: "restart",
+        message: "Do you want to add another team member?",
+        choices: [
+            "Yes",
+            "No"
+        ]
+    }])
+    .then(function(response){
+        if((response).restart === "Yes") {
 
-// }
+            // start again
+            getInput();
+        }
+        else if ((response).restart === "No"){
+            // generate html page
+            console.log("done");
+        }
+    })
 
+}
+
+getInput();
     
 
     
