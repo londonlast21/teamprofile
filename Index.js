@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
-const page = require("./dist/page.html")
+
 
 // constructors
 const Manager = require('./lib/Manager.js');
@@ -217,25 +217,24 @@ function addAnother() {
 // // part that creates the HTML page
 function writeFile(data) {
 // first clear old data
-fs.writeFile('./dist/page.html', '');
+fs.writeFileSync('./dist/page.html', '');
 // next generate new basic html structure
-fs.writeFile('./dist/page.html','<!DOCTYPE html>'
-+'<html>'
-+'</br>'
+fs.writeFileSync('./dist/page.html',
+`<!DOCTYPE html>
+<html lan="en">
+    <head>
+    <meta charset="utf-8">
+    <title>"Team Profiles"</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <h1>
+            "Team Profiles"
+        </h1>
+    </body>
+</html>`);
 
-+'<head>'
-    +'<meta charset="utf-8">'
-    +'<title>'+ "Team Profiles" +'</title>'
-+'</head>'
-+'<body>'
-+'<h1>'
-+"Team Profiles"
-+'</body>'
-+'<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />'
-+'<link rel="stylesheet" href="./assets/css/style.css" />'
-+'</html>');
-
-// add the team member cards
 
     // makeTeamCards();
  
