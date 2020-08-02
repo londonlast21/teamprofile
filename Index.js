@@ -21,6 +21,9 @@ const teamCardArray = [];
 // generate team member card
 function makeTeamCards(){
 
+    let role;
+    let cardData;
+
     
     // test my data in array is persisting
     console.log(teamMembers);
@@ -28,7 +31,7 @@ function makeTeamCards(){
     // create card for each object in array
     for (i = 0; i < teamMembers.length; i++) {
         // test what objects exist
-        console.log([i])
+        console.log(teamMembers[i])
         // tell me what their info is
         
         let name = teamMembers[i].name;
@@ -36,20 +39,21 @@ function makeTeamCards(){
         let email = teamMembers[i].email;
 
         // switch to get role and unique answers
-
-        switch(teamMembers[i]){
-        
+        console.log(teamMembers[i].getRole(), typeof teamMembers[i].getRole())
+        switch(teamMembers[i].getRole()){
+       
+            
 
         // add role and unique q data
-        case 'Manager':
-            var role = "Manager";
+            case "Manager":
+            role = "Manager";
 
             let officeNumber = teamMembers[i].officeNumber;
 
             // test what values I have
             console.log(name, id, email, role, officeNumber);
             // create card
-            let cardData = 
+            cardData = 
             `
             <h2>${name}</h2>
             <h2>${id}</h2>
@@ -59,6 +63,7 @@ function makeTeamCards(){
             `
 
             console.log(cardData);
+            break;
             
 
             
@@ -66,15 +71,15 @@ function makeTeamCards(){
 
         
         
-        case 'Engineer':
-            let role = "Engineer";
+        case "Engineer":
+            role = "Engineer";
 
             let gitHubName = teamMembers[i].gitHubName;
 
             // test what values I have
             console.log(name, id, email, role, gitHubName)
 
-            let cardData = 
+            cardData = 
             `
             <h2>${name}</h2>
             <h2>${id}</h2>
@@ -84,20 +89,21 @@ function makeTeamCards(){
             `
 
             console.log(cardData);
+            break;
 
             
 
         
         
-        case 'Intern':
-            let role = "Intern";
+        case "Intern":
+            role = "Intern";
 
             let school = teamMembers[i].school;
 
             // test what values I have
             console.log(name, id, email, role, school)
 
-            let cardData = 
+            cardData = 
             `
             <h2>${name}</h2>
             <h2>${id}</h2>
@@ -190,7 +196,7 @@ function getInput() {
                 .then(function(response){
                     
                     let officeNumber = response.officeNumber;
-                    const manager = new Manager(name, id, email, officeNumber);
+                    let manager = new Manager(name, id, email, officeNumber);
                     // push manager to team array
                     teamMembers.push(manager);
                     // test what is in array
@@ -219,7 +225,7 @@ function getInput() {
                 }])
                 .then(function(response){
                     let gitHubName = response.gitHubName;
-                    const engineer = new Engineer(name, id, email, gitHubName);
+                    let engineer = new Engineer(name, id, email, gitHubName);
                     // push new engineer to team array
                     teamMembers.push(engineer)
 
