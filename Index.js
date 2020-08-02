@@ -217,9 +217,9 @@ function addAnother() {
 // // part that creates the HTML page
 function writeFile(data) {
 // first clear old data
-fs.writeFileSync('./dist/page.html', '');
+fs.writeFile('./dist/page.html', '');
 // next generate new basic html structure
-fs.writeFileSync('./dist/page.html','<!DOCTYPE html>'
+fs.writeFile('./dist/page.html','<!DOCTYPE html>'
 +'<html>'
 +'</br>'
 
