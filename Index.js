@@ -60,17 +60,46 @@ function getRole() {
 
         if((response).role === "Manager") {
             console.log("go to manager");
+
+            //prompt for office number
+            inquirer.prompt([{
+                type: "input",
+                name: "officeNumber",
+                message: "What is their office number?",
+            }]);
+
+
         } else if 
             ((response).role === "Engineer") {
             console.log("go to engineer");
-            }
+            
+            // prompt for github
+            inquirer.prompt([{
+                type:"input",
+                name: "gitHubName",
+                message: "What is their GitHub username?",
+            }]);
+
+         }
         else if
             ((response).role === "Intern") { 
                 console.log("go to intern");
+
+                // prompt for school
+                inquirer.prompt([{
+                    type: "input",
+                    name: "school",
+                    message: "What is the name of their school?",
+                }]);
             }
         });
 
 }
+
+// functions to build each type of profile card
+// function getManager() {
+
+// }
 
     
 
