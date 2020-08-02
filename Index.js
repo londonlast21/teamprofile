@@ -1,6 +1,9 @@
 // NPM modules
 const inquirer = require('inquirer');
 const fs = require('fs');
+const http = require('http');
+const path = require('path');
+const page = require("./dist/page.html")
 
 // constructors
 const Manager = require('./lib/Manager.js');
@@ -10,12 +13,28 @@ const Intern = require('./lib/Intern.js');
 
 // global variables
 const teamMembers = [];
+const fileName = ''
 
 // generate team member card
 function makeTeamCards(){
 
     console.log("team func hit");
     //teamMembers.forEach()
+    for (i = 0; i < teamMembers.length; i++) {
+        // test what objects exist
+        console.log(i);
+        // create card using input
+
+
+
+        // get contents of file before appending
+        console.log("File Contents:",
+        fs.readFileSync("./dist/page.html"));
+
+        // this is correctly adding to page.html doc
+        // add card to html page
+        fs.appendFileSync('./dist/page.html', "This is test", { encoding: "body"});
+    }
 
 };
 
@@ -98,7 +117,7 @@ function getInput() {
                     // test what is in array
                     console.log(teamMembers);
 
-                    // function to generate managercard
+                    addAnother();
                     
                 })
 
@@ -128,6 +147,8 @@ function getInput() {
                     // test array value
                     console.log(teamMembers);
 
+                    addAnother();
+
 
                 })
             }
@@ -152,6 +173,8 @@ function getInput() {
                     teamMembers.push(intern);
                     // test what is in array
                     console.log(teamMembers);
+
+                    addAnother();
                 })
                 
             }
@@ -183,8 +206,8 @@ function addAnother() {
         }
         else if ((response).restart === "No"){
             // generate html page
-            console.log("done");
-            // generate html page
+            console.log(teamMembers);
+            // generate html page from teamMember's array
             writeFile();
         }
     })}
@@ -192,28 +215,23 @@ function addAnother() {
 
 
 // // part that creates the HTML page
-function writeFile(){
-    const html = `<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Title</title>
-    </head>
-    <body>
-    </body>
-    </html>`;
+function writeFile(data) {
+    
+fs.writeFileSync('./dist/page.html','<!DOCTYPE html>'
++'<html>'
++'<head>'
+    +'<meta charset="utf-8">'
+    +'<title>'+ "Team Profiles" +'</title>'
++'</head>'
++'<body>'
++'</body>'
++'</html>');
 
-    fs.writeFile('index.html', html, error => {
-    if (error) {
-        console.log(error);
-    }
-    // if no error
-    console.log("hitting writeFile function");
-    console.log(data);
-    });
-};
+    // makeTeamCards();
+ 
 
+}
 // call to start app
-getInput();
+getInput()
 
-module.exports = function () {};
+module.exports = writeFile;
