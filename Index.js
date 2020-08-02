@@ -11,6 +11,14 @@ const Intern = require('./lib/Intern.js');
 // global variables
 const teamMembers = [];
 
+// generate team member card
+function makeTeamCards(){
+
+    console.log("team func hit");
+    //teamMembers.forEach()
+
+};
+
 // prompt user for initial input
 function getInput() {
     inquirer.prompt([
@@ -68,13 +76,16 @@ function getRole() {
                 type: "input",
                 name: "officeNumber",
                 message: "What is their office number?",
-            }]);
+            }])
+            // send to array
+            // .then(function(data){
+            //     this.teamMembers.push(new Manager(data.name, data.id, data.email, data.officeNumber));
+
+            //     // test what's in array
+            //     console.log(teamMembers);
+            // })
 
             
-
-            
-
-
         } else if 
             ((response).role === "Engineer") {
             console.log("go to engineer");
@@ -105,12 +116,13 @@ function getRole() {
         });
 
        // push response to teamMembers array
+       //makeTeamCards();
 
        // prompt for further input
-       //addAnother();
+       addAnother();
 
 }
-
+// function to repeat for more input
 function addAnother() {
     inquirer.prompt([{
         type: "list",
@@ -131,37 +143,35 @@ function addAnother() {
             // generate html page
             console.log("done");
         }
-    })
+    })}
 
-}
-
-getInput();
-    
-
-    
-
-
-
-
+    // send this info to html generation
 
 // // part that creates the HTML page
-//const fs = require('fs');
+function writeFile(){
+    const html = `<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+    </head>
+    <body>
+    </body>
+    </html>`;
 
-// const html = `<!DOCTYPE html>
-// <html>
-//   <head>
-//     <meta charset="utf-8">
-//     <title>Title</title>
-//   </head>
-//   <body>
-//   </body>
-// </html>`;
+    fs.writeFile('index.html', html, error => {
+    if (error) {
+        console.log(error);
+    }
+    });
+};
 
-// fs.writeFile('index.html', html, error => {
-//   if (error) {
-//     console.log(error);
-//   }
-// });
-// // end of HTML gen function
+
+// function getInput(){
+//     this.newEmployee();
+// };
+
+// call to start app
+getInput();
 
 module.exports = function () {};
