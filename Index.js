@@ -35,10 +35,48 @@ inquirer.prompt([
             // send this information to the card constructor
          
             console.log(response);
+            // call function for getRole
+            getRole();
             
         });
 
-    // make next function for role run
+// make next function for role run
+function getRole() {
+    inquirer.prompt([
+        {
+            name: "role",
+            type: "list",
+            message: "What is the employee's role?",
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern"
+            ]
+        }
+    ])
+
+    // do what with the data?
+    .then(function(response){
+
+        if((response).role === "Manager") {
+            console.log("go to manager");
+        } else if 
+            ((response).role === "Engineer") {
+            console.log("go to engineer");
+            }
+        else if
+            ((response).role === "Intern") { 
+                console.log("go to intern");
+            }
+        });
+
+}
+
+    
+
+    
+
+
 
 
 
