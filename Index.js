@@ -217,7 +217,10 @@ function addAnother() {
 // // part that creates the HTML page
 function writeFile(data) {
 // first clear old data
-fs.writeFileSync('./dist/page.html', '');
+fs.writeFileSync('./dist/page.html', '', function (err) {
+    if (err) throw err;
+    console.log('Error');
+});
 // next generate new basic html structure
 fs.writeFileSync('./dist/page.html',
 `<!DOCTYPE html>
@@ -233,10 +236,13 @@ fs.writeFileSync('./dist/page.html',
             "Team Profiles"
         </h1>
     </body>
-</html>`);
+</html>`, function (err){
+    if (err) throw err;
+    console.log("Error");
+});
 
 
-    // makeTeamCards();
+     makeTeamCards();
  
 
 }
