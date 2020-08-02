@@ -18,6 +18,7 @@ const fileName = '';
 const teamCardArray = [];
 
 
+
 // generate team member card
 function makeTeamCards(){
 
@@ -62,30 +63,23 @@ function makeTeamCards(){
             <h3>${officeNumber}</h3>
             `
 
-            console.log(cardData);
+            //console.log(cardData);
+            //console.log[i];
 
-            // push card Data to page
-            //document.getElementById("team-list-wrapper").appendChild(cardData);
+            // push the card to the cards array
+            teamCardArray.push(cardData);
+
+
             break;
-
-            
-            
-
-
-            
-            
-
-            
-
-
         
+    
         
         case "Engineer":
             role = "Engineer";
 
             let gitHubName = teamMembers[i].gitHubName;
 
-            cardData = 
+            cardData= 
             `
             <h2>${name}</h2>
             <h2>${id}</h2>
@@ -94,9 +88,9 @@ function makeTeamCards(){
             <h3>${gitHubName}</h3>
             `
 
-            console.log(cardData);
+            //console.log(cardData);
 
-            fs.writeFile
+            teamCardArray.push(cardData);
 
 
             break;
@@ -111,7 +105,7 @@ function makeTeamCards(){
 
             let school = teamMembers[i].school;
 
-            cardData = 
+            cardData= 
             `
             <h2>${name}</h2>
             <h2>${id}</h2>
@@ -120,7 +114,9 @@ function makeTeamCards(){
             <h3>${school}</h3>
             `;
 
-            console.log(cardData);
+            //console.log(cardData);
+
+            teamCardArray.push(cardData);
 
             break;
 
@@ -314,9 +310,9 @@ function addAnother() {
 // // part that creates the HTML page
 function writeFile(data) {
     // test data in array is being transferred
-    console.log("this is your list:")
-    console.log(teamMembers);
-    makeTeamCards();
+    //console.log("this is your list:")
+    //console.log(teamMembers);
+    //makeTeamCards();
         
     // first clear old data
     fs.writeFileSync('./dist/page.html', '', function (err) {
@@ -329,7 +325,7 @@ function writeFile(data) {
     <html lan="en">
         <head>
         <meta charset="utf-8">
-        <title>Team Profiles</title>
+        <title>Team Profiles </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         </head>
@@ -345,7 +341,10 @@ function writeFile(data) {
         if (err) throw err;
         console.log("Error");
     });
-    //makeTeamCards();
+    
+    makeTeamCards();
+    console.log(teamCardArray);
+
 }
 // call to start app
 getInput()
