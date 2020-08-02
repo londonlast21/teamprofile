@@ -59,13 +59,25 @@ function getInput() {
 
             // if role = manager
             if(role === "Manager") {
+
                 inquirer.prompt([{
                     type: "input",
                     name: "officeNumber",
                     message: "What is their office number?"
                 }])
+                .then(function(response){
+                    
+                    let officeNumber = response.officeNumber;
+                    
+
+                    // push new manager to team array
+                    teamMembers.push(new Manager(name, id, email, officeNumber));
+                    // test what is in array
+                    console.log(teamMembers);
+                })
 
 
+                
             }
 
             // if role = engineer
@@ -75,6 +87,16 @@ function getInput() {
                     name: "gitHubName",
                     message: "What is their GitHub username?"
                 }])
+                .then(function(response){
+                    let gitHubName = response.gitHubName;
+                    // push new engineer to team array
+                    teamMembers.push(new Engineer(name, id, email, gitHubName));
+
+                    // test array value
+                    console.log(teamMembers);
+
+
+                })
             }
 
             // if role = intern
@@ -84,100 +106,22 @@ function getInput() {
                     name: "school",
                     message: "What is their school's name?"
                 }])
+                .then(function(response){
+                    let school = response.school;
+                    // push new intern to array
+                    teamMembers.push(new Intern(name, id, email, school));
+                    // test what is in array
+                    console.log(teamMembers);
+                })
             }
+            
         })
 
-        
-
-        //console.log(this.name, this.id, this.email, this.role);
-
+    // ask if user wants to repeat
+    
 // below this is closure of getInput();
 }
 
-
-
-
-
-
-
-
-
-// make next function for role run
-// function getRole() {
-//     inquirer.prompt([
-//         {
-//             name: "role",
-//             type: "list",
-//             message: "What is the employee's role?",
-//             choices: [
-//                 "Manager",
-//                 "Engineer",
-//                 "Intern"
-//             ]
-//         }
-//     ])
-
-//     // do what with the data?
-//     .then(function(response){
-//        //addAnother();
-//         if((response).role === "Manager") {
-//             console.log("go to manager");
-
-//             //prompt for office number
-//             inquirer.prompt([{
-//                 type: "input",
-//                 name: "officeNumber",
-//                 message: "What is their office number?",
-//             }])
-//             // send to array
-//             .then(function(response){
-//                 teamMembers.push(new Manager("a", 2, 1, false));
-
-//                 // test what's in array
-//                 console.log(teamMembers);
-//             })
-
-            
-//         } else if 
-//             ((response).role === "Engineer") {
-//             console.log("go to engineer");
-            
-//             // prompt for github
-//             inquirer.prompt([{
-//                 type:"input",
-//                 name: "gitHubName",
-//                 message: "What is their GitHub username?",
-//             }])
-//             // send to array
-//             .then
-
-//             // call to func to generate card
-
-           
-
-//          }
-//         else if
-//             ((response).role === "Intern") { 
-//                 console.log("go to intern");
-
-//                 // prompt for school
-//                 inquirer.prompt([{
-//                     type: "input",
-//                     name: "school",
-//                     message: "What is the name of their school?",
-//                 }]);
-                
-                
-//             }
-//         });
-
-//        // push response to teamMembers array
-//        //makeTeamCards();
-
-//        // prompt for further input
-       
-
-// }
 // function to repeat for more input
 function addAnother() {
     inquirer.prompt([{
@@ -226,11 +170,6 @@ function writeFile(){
     console.log(data);
     });
 };
-
-
-// function getInput(){
-//     this.newEmployee();
-// };
 
 // call to start app
 getInput();
