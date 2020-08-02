@@ -9,6 +9,7 @@ const path = require('path');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
+const Employee = require('./lib/Employee.js');
 
 
 // global variables
@@ -19,21 +20,23 @@ const fileName = ''
 function makeTeamCards(){
 
     console.log("team func hit");
-    //teamMembers.forEach()
+    // test my data in array is persisting
+    console.log(teamMembers);
+
+    // create card for each object in array
     for (i = 0; i < teamMembers.length; i++) {
         // test what objects exist
-        console.log(i);
+        console.log("hi");
+        // tell me what their info is
+        
         // create card using input
+        // let cardData ={ 
+        //     "name" = name,
+        //     "id" = id,
+        //     "email" = email,
+        // };
+        // console.log(cardData);
 
-
-
-        // get contents of file before appending
-        console.log("File Contents:",
-        fs.readFileSync("./dist/page.html"));
-
-        // this is correctly adding to page.html doc
-        // add card to html page
-        fs.appendFileSync('./dist/page.html', "This is test", { encoding: "body"});
     }
 
 };
@@ -216,35 +219,39 @@ function addAnother() {
 
 // // part that creates the HTML page
 function writeFile(data) {
-// first clear old data
-fs.writeFileSync('./dist/page.html', '', function (err) {
-    if (err) throw err;
-    console.log('Error');
-});
-// next generate new basic html structure
-fs.writeFileSync('./dist/page.html',
-`<!DOCTYPE html>
-<html lan="en">
-    <head>
-    <meta charset="utf-8">
-    <title>"Team Profiles"</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    </head>
-    <body>
-        <h1>
-            "Team Profiles"
-        </h1>
-    </body>
-</html>`, function (err){
-    if (err) throw err;
-    console.log("Error");
-});
+    // test data in array is being transferred
+    console.log("this is your list:")
+    console.log(teamMembers);
+    makeTeamCards();
+        
+    // first clear old data
+    fs.writeFileSync('./dist/page.html', '', function (err) {
+        if (err) throw err;
+        console.log('Error');
+    });
+    // next generate new basic html structure
+    fs.writeFileSync('./dist/page.html',
+    `<!DOCTYPE html>
+    <html lan="en">
+        <head>
+        <meta charset="utf-8">
+        <title>Team Profiles</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        </head>
+        <body>
+            <h1>
+                Team Profiles
+            </h1>
 
-
-     makeTeamCards();
- 
-
+            <div id="team-list-wrapper">
+            </div>
+        </body>
+    </html>`, function (err){
+        if (err) throw err;
+        console.log("Error");
+    });
+    //makeTeamCards();
 }
 // call to start app
 getInput()
