@@ -19,25 +19,50 @@ const fileName = ''
 // generate team member card
 function makeTeamCards(){
 
-    console.log("team func hit");
+    
     // test my data in array is persisting
     console.log(teamMembers);
 
     // create card for each object in array
     for (i = 0; i < teamMembers.length; i++) {
         // test what objects exist
-        console.log("hi");
+        console.log([i])
         // tell me what their info is
-        
-        // create card using input
-        // let cardData ={ 
-        //     "name" = name,
-        //     "id" = id,
-        //     "email" = email,
-        // };
-        // console.log(cardData);
+        let name = teamMembers[i].name;
+        let id = teamMembers[i].id;
+        let email = teamMembers[i].email;
 
-    }
+        // add role and unique q data
+        if (Manager) {
+            let role = "Manager";
+
+            let officeNumber = teamMembers[i].officeNumber;
+
+            
+
+            console.log(role, officeNumber);
+
+        }
+        
+        else if (Engineer) {
+            let role = "Engineer";
+
+            let gitHubName = teamMembers[i].gitHubName;
+
+        }
+        
+        else if (Intern) {
+            let role = "Intern";
+
+            let school = teamMembers[i].school;
+
+        }
+    
+
+        
+        
+
+    }    
 
 };
 
@@ -118,7 +143,7 @@ function getInput() {
                     // push manager to team array
                     teamMembers.push(manager);
                     // test what is in array
-                    console.log(teamMembers);
+                    //console.log(teamMembers);
 
                     addAnother();
                     
@@ -148,7 +173,7 @@ function getInput() {
                     teamMembers.push(engineer)
 
                     // test array value
-                    console.log(teamMembers);
+                    //console.log(teamMembers);
 
                     addAnother();
 
@@ -209,7 +234,7 @@ function addAnother() {
         }
         else if ((response).restart === "No"){
             // generate html page
-            console.log(teamMembers);
+            //console.log(teamMembers);
             // generate html page from teamMember's array
             writeFile();
         }
