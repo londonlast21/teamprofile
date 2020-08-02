@@ -92,15 +92,14 @@ function getInput() {
                 .then(function(response){
                     
                     let officeNumber = response.officeNumber;
-                    
-
-                    // push new manager to team array
-                    teamMembers.push(new Manager(name, id, email, officeNumber));
+                    const manager = new Manager(name, id, email, officeNumber);
+                    // push manager to team array
+                    teamMembers.push(manager);
                     // test what is in array
                     console.log(teamMembers);
 
                     // function to generate managercard
-                    //genManagerCard
+                    
                 })
 
 
@@ -122,8 +121,9 @@ function getInput() {
                 }])
                 .then(function(response){
                     let gitHubName = response.gitHubName;
+                    const engineer = new Engineer(name, id, email, gitHubName);
                     // push new engineer to team array
-                    teamMembers.push(new Engineer(name, id, email, gitHubName));
+                    teamMembers.push(engineer)
 
                     // test array value
                     console.log(teamMembers);
@@ -147,8 +147,9 @@ function getInput() {
                 }])
                 .then(function(response){
                     let school = response.school;
-                    // push new intern to array
-                    teamMembers.push(new Intern(name, id, email, school));
+                    const intern = new Intern(name, id, email, school);
+                    // push to array
+                    teamMembers.push(intern);
                     // test what is in array
                     console.log(teamMembers);
                 })
