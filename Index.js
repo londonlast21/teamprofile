@@ -216,16 +216,26 @@ function addAnother() {
 
 // // part that creates the HTML page
 function writeFile(data) {
-    
+// first clear old data
+fs.writeFileSync('./dist/page.html', '');
+// next generate new basic html structure
 fs.writeFileSync('./dist/page.html','<!DOCTYPE html>'
 +'<html>'
++'</br>'
+
 +'<head>'
     +'<meta charset="utf-8">'
     +'<title>'+ "Team Profiles" +'</title>'
 +'</head>'
 +'<body>'
++'<h1>'
++"Team Profiles"
 +'</body>'
++'<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />'
++'<link rel="stylesheet" href="./assets/css/style.css" />'
 +'</html>');
+
+// add the team member cards
 
     // makeTeamCards();
  
