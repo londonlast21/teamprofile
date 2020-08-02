@@ -30,6 +30,7 @@ function makeTeamCards(){
 
     // create card for each object in array
     for (i = 0; i < teamMembers.length; i++) {
+        
         // test what objects exist
         console.log(teamMembers[i])
         // tell me what their info is
@@ -50,8 +51,7 @@ function makeTeamCards(){
 
             let officeNumber = teamMembers[i].officeNumber;
 
-            // test what values I have
-            console.log(name, id, email, role, officeNumber);
+            
             // create card
             cardData = 
             `
@@ -63,7 +63,16 @@ function makeTeamCards(){
             `
 
             console.log(cardData);
+
+            // push card Data to page
+            //document.getElementById("team-list-wrapper").appendChild(cardData);
             break;
+
+            
+            
+
+
+            
             
 
             
@@ -76,9 +85,6 @@ function makeTeamCards(){
 
             let gitHubName = teamMembers[i].gitHubName;
 
-            // test what values I have
-            console.log(name, id, email, role, gitHubName)
-
             cardData = 
             `
             <h2>${name}</h2>
@@ -89,7 +95,12 @@ function makeTeamCards(){
             `
 
             console.log(cardData);
+
+            fs.writeFile
+
+
             break;
+            
 
             
 
@@ -100,9 +111,6 @@ function makeTeamCards(){
 
             let school = teamMembers[i].school;
 
-            // test what values I have
-            console.log(name, id, email, role, school)
-
             cardData = 
             `
             <h2>${name}</h2>
@@ -110,9 +118,13 @@ function makeTeamCards(){
             <h2>${email}</h2>
             <h3>${role}</h3>
             <h3>${school}</h3>
-            `
+            `;
+
             console.log(cardData);
 
+            break;
+
+            
         }
     
 
