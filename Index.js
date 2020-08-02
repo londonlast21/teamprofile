@@ -36,92 +36,148 @@ function getInput() {
         type: 'input',
         name: 'email',
         message: "Enter employee's email",
-        }
-
-        ])
-        // do what with the answers?
-        .then(function(response){
-            // send this information to the card constructor
-         
-            console.log(response);
-            // call function for getRole
-            getRole();
-            
-        });
-    }
-
-// make next function for role run
-function getRole() {
-    inquirer.prompt([
+        },
         {
-            name: "role",
-            type: "list",
-            message: "What is the employee's role?",
+        type:'list',
+        name: "role",
+        message: "Select employee's role",
             choices: [
-                "Manager",
-                "Engineer",
-                "Intern"
+            "Manager",
+            "Engineer",
+            "Intern"
             ]
-        }
-    ])
+        },
+        ])
+        // end of list of questions
 
-    // do what with the data?
-    .then(function(response){
+        // do what with the responses?
+        .then(function(response){
+           let name = response.name;
+           let id = response.id;
+           let email = response.email;
+           let role = response.role;
 
-        if((response).role === "Manager") {
-            console.log("go to manager");
+            // if role = manager
+            if(role === "Manager") {
+                inquirer.prompt([{
+                    type: "input",
+                    name: "officeNumber",
+                    message: "What is their office number?"
+                }])
 
-            //prompt for office number
-            inquirer.prompt([{
-                type: "input",
-                name: "officeNumber",
-                message: "What is their office number?",
-            }])
-            // send to array
-            // .then(function(data){
-            //     this.teamMembers.push(new Manager(data.name, data.id, data.email, data.officeNumber));
 
-            //     // test what's in array
-            //     console.log(teamMembers);
-            // })
+            }
 
-            
-        } else if 
-            ((response).role === "Engineer") {
-            console.log("go to engineer");
-            
-            // prompt for github
-            inquirer.prompt([{
-                type:"input",
-                name: "gitHubName",
-                message: "What is their GitHub username?",
-            }]);
+            // if role = engineer
+            if(role === "Engineer") {
+                inquirer.prompt([{
+                    type: "input",
+                    name: "gitHubName",
+                    message: "What is their GitHub username?"
+                }])
+            }
 
-           
-
-         }
-        else if
-            ((response).role === "Intern") { 
-                console.log("go to intern");
-
-                // prompt for school
+            // if role = intern
+            if(role === "Intern") {
                 inquirer.prompt([{
                     type: "input",
                     name: "school",
-                    message: "What is the name of their school?",
-                }]);
-                
-                
+                    message: "What is their school's name?"
+                }])
             }
-        });
+        })
 
-       // push response to teamMembers array
-       //makeTeamCards();
+        
 
-       // prompt for further input
-       addAnother();
+        //console.log(this.name, this.id, this.email, this.role);
 
+// below this is closure of getInput();
 }
+
+
+
+
+
+
+
+
+
+// make next function for role run
+// function getRole() {
+//     inquirer.prompt([
+//         {
+//             name: "role",
+//             type: "list",
+//             message: "What is the employee's role?",
+//             choices: [
+//                 "Manager",
+//                 "Engineer",
+//                 "Intern"
+//             ]
+//         }
+//     ])
+
+//     // do what with the data?
+//     .then(function(response){
+//        //addAnother();
+//         if((response).role === "Manager") {
+//             console.log("go to manager");
+
+//             //prompt for office number
+//             inquirer.prompt([{
+//                 type: "input",
+//                 name: "officeNumber",
+//                 message: "What is their office number?",
+//             }])
+//             // send to array
+//             .then(function(response){
+//                 teamMembers.push(new Manager("a", 2, 1, false));
+
+//                 // test what's in array
+//                 console.log(teamMembers);
+//             })
+
+            
+//         } else if 
+//             ((response).role === "Engineer") {
+//             console.log("go to engineer");
+            
+//             // prompt for github
+//             inquirer.prompt([{
+//                 type:"input",
+//                 name: "gitHubName",
+//                 message: "What is their GitHub username?",
+//             }])
+//             // send to array
+//             .then
+
+//             // call to func to generate card
+
+           
+
+//          }
+//         else if
+//             ((response).role === "Intern") { 
+//                 console.log("go to intern");
+
+//                 // prompt for school
+//                 inquirer.prompt([{
+//                     type: "input",
+//                     name: "school",
+//                     message: "What is the name of their school?",
+//                 }]);
+                
+                
+//             }
+//         });
+
+//        // push response to teamMembers array
+//        //makeTeamCards();
+
+//        // prompt for further input
+       
+
+// }
 // function to repeat for more input
 function addAnother() {
     inquirer.prompt([{
@@ -142,6 +198,8 @@ function addAnother() {
         else if ((response).restart === "No"){
             // generate html page
             console.log("done");
+            // generate html page
+            writeFile();
         }
     })}
 
@@ -163,6 +221,9 @@ function writeFile(){
     if (error) {
         console.log(error);
     }
+    // if no error
+    console.log("hitting writeFile function");
+    console.log(data);
     });
 };
 
