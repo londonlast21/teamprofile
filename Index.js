@@ -14,7 +14,9 @@ const Employee = require('./lib/Employee.js');
 
 // global variables
 const teamMembers = [];
-const fileName = ''
+const fileName = '';
+const teamCardArray = [];
+
 
 // generate team member card
 function makeTeamCards(){
@@ -28,19 +30,35 @@ function makeTeamCards(){
         // test what objects exist
         console.log([i])
         // tell me what their info is
+        
         let name = teamMembers[i].name;
         let id = teamMembers[i].id;
         let email = teamMembers[i].email;
 
+        
+
         // add role and unique q data
-        if (Manager) {
-            let role = "Manager";
+        if ( Manager) {
+            var role = "Manager";
 
             let officeNumber = teamMembers[i].officeNumber;
 
+            // test what values I have
+            console.log(name, id, email, role, officeNumber);
+            // create card
+            let cardData = 
+            `
+            <h2>${name}</h2>
+            <h2>${id}</h2>
+            <h2>${email}</h2>
+            <h3>${role}</h3>
+            <h3>${officeNumber}</h3>
+            `
+
+            console.log(cardData);
+
             
 
-            console.log(role, officeNumber);
 
         }
         
@@ -49,12 +67,41 @@ function makeTeamCards(){
 
             let gitHubName = teamMembers[i].gitHubName;
 
+            // test what values I have
+            console.log(name, id, email, role, gitHubName)
+
+            let cardData = 
+            `
+            <h2>${name}</h2>
+            <h2>${id}</h2>
+            <h2>${email}</h2>
+            <h3>${role}</h3>
+            <h3>${gitHubName}</h3>
+            `
+
+            console.log(cardData);
+
+            
+
         }
         
         else if (Intern) {
             let role = "Intern";
 
             let school = teamMembers[i].school;
+
+            // test what values I have
+            console.log(name, id, email, role, school)
+
+            let cardData = 
+            `
+            <h2>${name}</h2>
+            <h2>${id}</h2>
+            <h2>${email}</h2>
+            <h3>${role}</h3>
+            <h3>${school}</h3>
+            `
+            console.log(cardData);
 
         }
     
