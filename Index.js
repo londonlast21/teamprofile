@@ -35,10 +35,13 @@ function makeTeamCards(){
         let id = teamMembers[i].id;
         let email = teamMembers[i].email;
 
+        // switch to get role and unique answers
+
+        switch(teamMembers[i]){
         
 
         // add role and unique q data
-        if ( Manager) {
+        case 'Manager':
             var role = "Manager";
 
             let officeNumber = teamMembers[i].officeNumber;
@@ -56,13 +59,14 @@ function makeTeamCards(){
             `
 
             console.log(cardData);
+            
 
             
 
 
-        }
         
-        else if (Engineer) {
+        
+        case 'Engineer':
             let role = "Engineer";
 
             let gitHubName = teamMembers[i].gitHubName;
@@ -83,9 +87,9 @@ function makeTeamCards(){
 
             
 
-        }
         
-        else if (Intern) {
+        
+        case 'Intern':
             let role = "Intern";
 
             let school = teamMembers[i].school;
