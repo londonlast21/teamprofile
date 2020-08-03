@@ -7,7 +7,7 @@ Use the commandline to generate a page of profiles based on input data.
 1. Clone repository
 2. Use the commandline to navigate to the master directory
 3. Run npm install
-4. enter 'node index.js' to start the application
+4. Enter 'node index.js' to start the application
 5. Answer input prompts
 
 ## Screenshot:
