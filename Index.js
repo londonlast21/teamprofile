@@ -57,9 +57,9 @@ function makeTeamCards(){
             cardData = 
             `
             <div class="card">
-            <h2>${name}</h2>
+            <h2 class="name">${name}</h2>
             <h3>${role}</h3>
-            <h3>${id}</h3>
+            <h3>ID: ${id}</h3>
             <a href="mailto:${email}">${email}</a>
             <h4>Office Number:${officeNumber}</h4>
             </div>
@@ -76,7 +76,7 @@ function makeTeamCards(){
 
             cardData= 
             `<div class="card">
-            <h2>${name}</h2>
+            <h2 class="name">${name}</h2>
             <h3>${role}</h3>
             <h3>${id}</h3>
             <a href="mailto:${email}">${email}</a>
@@ -95,7 +95,7 @@ function makeTeamCards(){
 
             cardData= 
             `<div class="card">
-            <h2>${name}</h2>
+            <h2 class="name">${name}</h2>
             <h3>${role}</h3>
             <h3>${id}</h3>
             <a href="mailto:"${email}>${email}</a>
@@ -254,7 +254,7 @@ function getInput() {
                     // push to array
                     teamMembers.push(intern);
                     // test what is in array
-                    console.log(teamMembers);
+                    //console.log(teamMembers);
 
                     addAnother();
                 })
