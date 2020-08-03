@@ -56,23 +56,18 @@ function makeTeamCards(){
             // create card
             cardData = 
             `
+            <div class="card">
             <h2>${name}</h2>
             <h2>${id}</h2>
             <h2>${email}</h2>
             <h3>${role}</h3>
             <h3>${officeNumber}</h3>
+            </div>
             `
-
-            //console.log(cardData);
-            //console.log[i];
 
             // push the card to the cards array
             teamCardArray.push(cardData);
-
-
             break;
-        
-    
         
         case "Engineer":
             role = "Engineer";
@@ -80,25 +75,17 @@ function makeTeamCards(){
             let gitHubName = teamMembers[i].gitHubName;
 
             cardData= 
-            `
+            `<div class="card">
             <h2>${name}</h2>
             <h2>${id}</h2>
             <h2>${email}</h2>
             <h3>${role}</h3>
             <h3>${gitHubName}</h3>
+            </div>
             `
-
-            //console.log(cardData);
-
             teamCardArray.push(cardData);
-
-
             break;
             
-
-            
-
-        
         
         case "Intern":
             role = "Intern";
@@ -106,12 +93,13 @@ function makeTeamCards(){
             let school = teamMembers[i].school;
 
             cardData= 
-            `
+            `<div class="card">
             <h2>${name}</h2>
             <h2>${id}</h2>
             <h2>${email}</h2>
             <h3>${role}</h3>
             <h3>${school}</h3>
+            </div>
             `;
 
             //console.log(cardData);
@@ -305,20 +293,19 @@ function addAnother() {
         }
     })}
 
-
-
 // // part that creates the HTML page
 function writeFile(data) {
-    // test data in array is being transferred
-    //console.log("this is your list:")
-    //console.log(teamMembers);
-    //makeTeamCards();
-        
+          
     // first clear old data
     fs.writeFileSync('./dist/page.html', '', function (err) {
         if (err) throw err;
         console.log('Error');
     });
+
+    // get the teamCardArray
+    makeTeamCards();
+    console.log(teamCardArray);
+
     // next generate new basic html structure
     fs.writeFileSync('./dist/page.html',
     `<!DOCTYPE html>
@@ -335,15 +322,17 @@ function writeFile(data) {
             </h1>
 
             <div id="team-list-wrapper">
+            ${(teamCardArray)}
             </div>
         </body>
-    </html>`, function (err){
+    </html>`, 
+    
+    function (err){
         if (err) throw err;
         console.log("Error");
     });
     
-    makeTeamCards();
-    console.log(teamCardArray);
+   
 
 }
 // call to start app
