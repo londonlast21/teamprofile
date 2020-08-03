@@ -13,4 +13,4 @@ Use the commandline to generate a page of profiles based on input data.
 ![Screenshot (72)](https://user-images.githubusercontent.com/65084173/89138798-5cb15d80-d502-11ea-8b31-b05009bfdc98.png)
 
 ## Link to Walkthrough:
-[Walkthrough](https://drive.google.com/file/d/1ClPU5O2RYch8dN0J_duXn5XCTW6hY2Cl/view)
+[Walkthrough](<https://drive.google.com/file/d/1ClPU5O2RYch8dN0J_duXn5XCTW6hY2Cl/preview)
