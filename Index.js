@@ -58,10 +58,10 @@ function makeTeamCards(){
             `
             <div class="card">
             <h2>${name}</h2>
-            <h2>${id}</h2>
-            <h2>${email}</h2>
             <h3>${role}</h3>
-            <h3>${officeNumber}</h3>
+            <h3>${id}</h3>
+            <a href="mailto:${email}">${email}</a>
+            <h4>Office Number: ${officeNumber}</h4>
             </div>
             `
 
@@ -77,10 +77,11 @@ function makeTeamCards(){
             cardData= 
             `<div class="card">
             <h2>${name}</h2>
-            <h2>${id}</h2>
-            <h2>${email}</h2>
             <h3>${role}</h3>
-            <h3>${gitHubName}</h3>
+            <h3>${id}</h3>
+            <a href="mailto:${email}">${email}</a>
+            <a href="http://github.com/"${gitHubName}>
+            <h4>GitHub Link: ${gitHubName}</h4></a>
             </div>
             `
             teamCardArray.push(cardData);
@@ -95,10 +96,10 @@ function makeTeamCards(){
             cardData= 
             `<div class="card">
             <h2>${name}</h2>
-            <h2>${id}</h2>
-            <h2>${email}</h2>
             <h3>${role}</h3>
-            <h3>${school}</h3>
+            <h3>${id}</h3>
+            <a href="mailto:"${email}>${email}</a>
+            <h4> School: ${school}</h4>
             </div>
             `;
 
@@ -314,7 +315,7 @@ function writeFile(data) {
         <meta charset="utf-8">
         <title>Team Profiles </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         </head>
         <body>
             <h1>

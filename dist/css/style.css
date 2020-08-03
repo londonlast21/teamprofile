@@ -1,0 +1,5 @@
+.card {
+    height: 150px;
+    width: fit-content
+    border: 4px solid black;
+}
